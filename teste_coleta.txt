@@ -1,0 +1,324 @@
+
+Console FIRMWARE v6
+login: admin
+senha: *****
+
+Modo console ativo
+Para mais informacoes, digite help na linha de comando
+
+root:/ # echo <<INICIO>>
+
+<<INICIO>> 
+
+root:/ # reset
+Restart ocorrera em 0.500 segundos
+
+root:/ # 
+Comando eletronico ALTERE V2/V3, rele R14, FIRMWARE v6
+Lupa Tecnologia e Sistemas Ltda (www.lupatecnologia.com.br)
+
+Firmware CPU: 6.0.13.2017.06.23
+
+Sistema de arquivos inicializado com sucesso !
+Verificando arquivos...
+Protocolo DNP3 inicializado com sucesso !
+Instancias MODBUS inicializadas com sucesso !
+Sistema de IO inicializado com sucesso !
+Portas de comunicacao inicializadas com sucesso !
+Instancia de comunicacao DNP3 em canal adicional UDP desabilitada !
+Funcao seccionalizadora inicializada com sucesso !
+Falha na inicializacao da funcao banco de capacitores !
+Logica Programavel nao carregada !
+Numero do ponto: 0300700818
+
+RTC inicializado: 11/09/2018 15:59:32
+
+Executando aplicacao em loop infinito...
+
+Console FIRMWARE v6
+login: admin
+senha: *****
+
+Modo console ativo
+Para mais informacoes, digite help na linha de comando
+
+root:/ # version
+
+Comando eletronico ALTERE V2/V3, rele R14, FIRMWARE v6
+Lupa Tecnologia e Sistemas Ltda (www.lupatecnologia.com.br)
+-----------------------------------------------------------
+MODULO UCP
+  * Versao do Firmware ............  6.0.13.2017.06.23
+  * Versao do Bootloader ........... 1.4.0
+  * Driver DNP3 ...................  1.2.7
+  * Driver MODBUS Master ..........  1.2.4
+  * Driver MODBUS Slave ...........  1.0.5
+-----------------------------------------------------------
+MODULO UPS
+  * Versao de Firmware ............  6.0.9.2017.08.05
+-----------------------------------------------------------
+MODULO UGE
+  * Versao de Firmware ............  1.2.2
+-----------------------------------------------------------
+MODULO IHM
+  * Versao de Firmware ............  6.0.6
+-----------------------------------------------------------
+
+root:/ # ihm version
+Versao de firmare IHM:  6.0.6
+
+root:/ # ups version
+
+Versao de firmare UPS:  6.0.9 (05/08/2017)
+
+root:/ # hwmac
+
+Endereco MAC: 00:50:C2:CE:FA:99
+
+root:/ # modstat
+
+Uptime: 00d:00h:00m:24s
+
+Mod  Status   Total TX              Timeout                 %     Detalhes
+--------------------------------------------------------------------------
+UPS   ON      00000000000000000346  00000000000000000000 100.00%
+IHM   ON      00000000000000000093  00000000000000000000 100.00%
+UGE   ON      00000000000000000016  00000000000000000000 100.00%
+
+root:/ # type IDT01
+Dados do arquivo IDT01
+
+
+Registro 0 = 32 bytes
+
+50 61 64 72 61 6F 5F 43 45 4D 49 47 5F 33 4C 5F     Padrao_CEMIG_3L_
+54 41 56 52 49 44 41 00 00 00 00 00 00 00 00 00     TAVRIDA.........
+
+Registro 1 = 32 bytes
+
+43 52 49 55 20 55 62 65 72 6C 61 6E 64 69 61 00     CRIU Uberlandia.
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00     ................
+
+Registro 2 = 4 bytes
+
+92 54 EC 11                                         .T..
+
+Registro 3 = 16 bytes
+
+4C 55 50 41 20 54 45 43 4E 4F 4C 4F 47 49 41 00     LUPA TECNOLOGIA.
+
+Registro 4 = 16 bytes
+
+41 4C 54 45 52 45 20 76 32 00 00 00 00 00 00 00     ALTERE v2.......
+
+root:/ # ups -rc
+Leitura em operacao...
+
+root:/ # 
+-------------------------------------
+[IMIN]
+00=0
+01=0
+02=0
+[VMIN]
+0=0
+[ICALHIZ]
+00=1024
+01=1024
+02=1024
+03=1024
+04=1024
+05=1024
+06=1024
+07=1024
+08=1024
+09=1024
+10=1024
+11=1024
+[ICALLOZ]
+00=1024
+01=1024
+02=1024
+03=1024
+04=1024
+05=1024
+06=1024
+07=1024
+08=1024
+09=1024
+10=1024
+11=1024
+[VCAL4V]
+00=1024
+01=1024
+02=1024
+03=1024
+04=1024
+05=1024
+[VCAL115V]
+00=1024
+01=1024
+02=1024
+03=1024
+04=1024
+05=1024
+[ICALRECLOSER]
+I1=4096
+I2=4096
+I3=4096
+I4=4096
+[VCALRECLOSER]
+V1=4096
+V2=4096
+V3=4096
+V4=4096
+V5=4096
+V6=4096
+-------------------------------------
+
+[00] = 3 (2.20 mV)
+[01] = 4 (2.93 mV)
+[02] = 3 (2.20 mV)
+[03] = 5 (3.66 mV)
+[04] = 2 (1.47 mV)
+[05] = 5 (3.66 mV)
+[06] = 4 (2.93 mV)
+[07] = 5 (3.66 mV)
+[08] = 6 (4.40 mV)
+[09] = 2 (1.47 mV)
+[10] = 0 (0.00 mV)
+[11] = 3 (2.20 mV)
+
+Leitura executada com sucesso
+log -f
+Log de eventos inicializado com sucesso !
+
+root:/ # hwmod -vh
+--------------------
+UCP : Rev 4
+Opt1: 0x0B
+      b0=1 (USE RTC)    b1=1 (USE ETH)    b2=0 (IOMOD)
+      b3=1 (USE CLP)    b4=0 (LED A0-2)
+Opt2: 0xDB  :), Opt3: 0x00 , Data: 0x0000
+--------------------
+UPS : R16
+ICT : R16, Gain=1
+Opt1: 0xF5
+      b0=1 (USE ICT)    b1=0 (ICT0)       b2=1 (ICT1)
+      b3=0 (ICT2)       b4=1 (27U)        b5=1 (59O)
+      b6=1 (81U/81O)    b7=1 (67/67N)
+Opt2: 0x00
+      b0=0 (ALT TAB)    b1=0 (SET HIZ)    b2=0 (SET LOZ)
+      b3=0 (ICT G0)     b4=0 (ICT G1)
+Opt3: 0x00 , Data: 0x0000
+--------------------
+IHM : R16 (ARM)
+Opt1: 0x01
+      b0=1 (CLR BTL BIT)
+Opt2: 0x00 , Opt3: 0x00 , Data: 0x0000
+--------------------
+IAP : HH
+Opt1: 0x00 , Opt2: 0x00 , Opt3: 0x00 , Data: 0x0000
+--------------------
+UGP : N/I
+Opt1: 0x00 , Opt2: 0x00 , Opt3: 0x00 , Data: 0x0000
+--------------------
+
+ID: 00016 , REV '2' , HwVersion: '6'
+Manufacturer: 'TAVRIDA' , Model: 'OSM25'
+InpCT0: 0x0020
+    b00=0 (52A)       b01=0 (/LOCK)     b02=0 (/GAS)       b03=0 (/CAPLOW)
+    b04=0 (BLK CL)    b05=1 (CAP BANK)  b06=0 (NO FP,P,Q)  b07=0 (FW MASK)
+    b08=0 (/BLK)      b09=0 (MDK)       b10=0 (CT PH)      b11=0 (CT G)
+    b12=0 (PT ABC)    b13=0 (PT RST)    b14=0 (PT SEC)     b15=0 (PT SEC 115)
+InputType=1: '1C': 52B , Lock=3 , Gas=DIS , BankOff=DIS , BlkOp=DIS
+OutputType=1: 'PULSE'
+VNomCap=215V , PWM= 0.50kHz , MCap= 330 , DCap=12
+OpCT0=0x1701
+        b00=1 (REC)      b01=0 (LMT I)    b02=0 (PWM)      b03=0 (FSD1)
+        b04=0 (FSD2)     b05=0 (FSD3)     b06=0 (FSD4)     b07=0 (FSD5)
+        b08=1 (FM CMD)   b09=1 (FMC OTH)  b10=1 (TPULSE)   b11=0 (IMAXFIX)
+        b12=1 (TRIPIO)   b13=0 (PWMDIN)
+OPEN:  TPulse=15ms , TWait=100ms , VCoil=215V , MinVCoil=100V
+       Ctrl=0x0011: P1=1 
+CLOSE: TPulse=70ms , TWait=100ms , VCoil=215V , MinVCoil=100V
+       Ctrl=0x0022: P2=1 
+
+root:/ # rcl
+
+RELIGADOR: Fabricante: TAVRIDA, Modelo: OSM25
+
+PARAMETROS          ABERTURA       FECHAMENTO
+Tempo Pulso       : 00015ms        00070ms
+Tempo Verificacao : 00100ms        00100ms
+Tensao na bobina  : 00215V         00215V
+Tensao minima     : 00100V         00100V
+
+Parametros do ACIONADOR
+Tensao nominal: 215V, Frequencia PWM: 0.5kHz
+
+Parametros de DESGASTE ELET/MEC
+INOM: Numero Abert. x Corrente Nom. : 10000 x 00630A
+IMAX: Numero Abert. x Corrente Max. : 00005 x 12000A
+Numero Maximo Operacoes Mecanicas   : 10000
+
+Parametros TC/TP
+TC Fase: 1000A:1A,  TC Terra: 1000A:1A
+TP Fonte: 34000V:4V,  TP Carga: 34000V:4V
+
+
+root:/ # calib
+
+--- Dados --- 
+Modelo: TAVRIDA OSM25
+Serial: 441532
+--- Correntes ---
+Relacao Nominal: 2.000000 V / 1.000000 kA
+
+CIX1 : 2.000000 V / 1.000000 kA (100.000%)
+CIX2 : 2.000000 V / 1.000000 kA (100.000%)
+CIX3 : 2.000000 V / 1.000000 kA (100.000%)
+CIXN : 2.000000 V / 1.000000 kA (100.000%)
+--- Tensoes ---
+Relacao Nominal: 0.120000 V / 1.000000 kV
+
+CUX1 : 0.120000 V / 1.000000 kV (100.000%)
+CUX2 : 0.120000 V / 1.000000 kV (100.000%)
+CUX3 : 0.120000 V / 1.000000 kV (100.000%)
+CUX4 : 0.120000 V / 1.000000 kV (100.000%)
+CUX5 : 0.120000 V / 1.000000 kV (100.000%)
+CUX6 : 0.120000 V / 1.000000 kV (100.000%)
+
+root:/ # rcl
+
+RELIGADOR: Fabricante: TAVRIDA, Modelo: OSM25
+
+PARAMETROS          ABERTURA       FECHAMENTO
+Tempo Pulso       : 00015ms        00070ms
+Tempo Verificacao : 00100ms        00100ms
+Tensao na bobina  : 00215V         00215V
+Tensao minima     : 00100V         00100V
+
+Parametros do ACIONADOR
+Tensao nominal: 215V, Frequencia PWM: 0.5kHz
+
+Parametros de DESGASTE ELET/MEC
+INOM: Numero Abert. x Corrente Nom. : 10000 x 00630A
+IMAX: Numero Abert. x Corrente Max. : 00005 x 12000A
+Numero Maximo Operacoes Mecanicas   : 10000
+
+Parametros TC/TP
+TC Fase: 1000A:1A,  TC Terra: 1000A:1A
+TP Fonte: 34000V:4V,  TP Carga: 34000V:4V
+
+
+root:/ # lport -sb 9600
+
+Taxa de comunicacao da porta local modificada para 9600 bps
+
+
+root:/ # echo <<FIM>>
+
+<<FIM>> 
+
+root:/ # 
