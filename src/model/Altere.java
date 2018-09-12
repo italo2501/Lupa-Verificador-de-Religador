@@ -18,6 +18,8 @@ public class Altere implements Comparable<Altere>{
     private String numRel; 
     private String tpFonte;
     private String tpCarga;
+    private String rtc;
+    private String date;
     private String CIX1;
     private String CIX2;
     private String CIX3;
@@ -45,6 +47,26 @@ public class Altere implements Comparable<Altere>{
         this.MAC = MAC;
     }
 
+    public String getRtc() {
+        return rtc;
+    }
+
+    public void setRtc(String rtc) {
+        this.rtc = rtc;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    
+    
+    
+    
     public String getTpFonte() {
         return tpFonte;
     }

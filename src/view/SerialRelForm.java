@@ -70,7 +70,6 @@ public class SerialRelForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Lupa Verifica Serial Religador");
-        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -167,17 +166,19 @@ public class SerialRelForm extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnTxt)
-                .addGap(18, 18, 18)
-                .addComponent(btnParametro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCSV)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnProcessar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLimpar)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnTxt)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnParametro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCSV)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnProcessar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 781, Short.MAX_VALUE)
+                        .addComponent(btnLimpar))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1228, Short.MAX_VALUE))
                 .addContainerGap())
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1240, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,6 +240,8 @@ public class SerialRelForm extends javax.swing.JFrame {
         List<String> listaCUX4 = new ArrayList<>();
         List<String> listaCUX5 = new ArrayList<>();
         List<String> listaCUX6 = new ArrayList<>();
+        List<String> listaRtc = new ArrayList<>();
+        List<String> listadate = new ArrayList<>();
 
         boolean valida = false;
         JFileChooser arqPDF = new JFileChooser();// criaS janela de busca
@@ -262,6 +265,13 @@ public class SerialRelForm extends javax.swing.JFrame {
 
                 while ((line = bufferedReader.readLine()) != null) {
 
+                    if (line.contains("Uptime:")) {
+
+                        String date = line.replaceAll("Uptime: ", "");
+                        listadate.add(date);
+
+                    }
+
                     if (line.contains("Numero do ponto:")) {
 
                         String serial = line.replaceAll("[\\sA-Za-z:]", "");
@@ -273,6 +283,12 @@ public class SerialRelForm extends javax.swing.JFrame {
                         String mac = line.replaceAll("Endereco MAC: ", "");
                         listaMAC.add(mac);
                         // System.out.println(mac);
+                    }
+
+                    if (line.contains("Data atual (RTC)")) {
+
+                        String rtc = line.replaceAll("[A-Za-z()]", "").replaceAll(" [0-9][0-9]\\/[0-9][0-9]\\/[0-9][0-9][0-9][0-9]", "").replaceAll(": ", "");
+                        listaRtc.add(rtc);
                     }
 
                     if (line.contains("Serial:")) {
@@ -411,7 +427,8 @@ public class SerialRelForm extends javax.swing.JFrame {
                     altere.setCUX4(listaCUX4.get(i));
                     altere.setCUX5(listaCUX5.get(i));
                     altere.setCUX6(listaCUX6.get(i));
-
+                    altere.setRtc(listaRtc.get(i));
+                    altere.setDate(listadate.get(i));
                     if (!listaAltere.contains(altere)) {
                         listaAltere.add(i, altere);
 

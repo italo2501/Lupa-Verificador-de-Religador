@@ -17,7 +17,7 @@ import javax.swing.table.AbstractTableModel;
 public class AltereModel extends AbstractTableModel {
     
      private final List<Altere> dados = new ArrayList<>();
-     private final String[] colunas = {"Serial", "MAC","TP Fonte", "TP Carga", "Religador", "CIX1", "CIX2","CIX3", "CIXN","CUX1", "CUX2", "CUX3", "CUX4", "CUX5", "CUX6" };
+     private final String[] colunas = {"Serial", "MAC","TP Fonte", "TP Carga", "Religador", "CIX1", "CIX2","CIX3", "CIXN","CUX1", "CUX2", "CUX3", "CUX4", "CUX5", "CUX6", "RTC","Tempo Operação" };
       DecimalFormat df = new DecimalFormat("0.0");  
      
      @Override
@@ -74,6 +74,10 @@ public class AltereModel extends AbstractTableModel {
                 return dados.get(linha).getCUX5();
             case 14:
                 return dados.get(linha).getCUX6();
+            case 15:
+                return dados.get(linha).getRtc();
+            case 16:
+                return dados.get(linha).getDate();
 
         }
         return null;
