@@ -11,11 +11,11 @@ import java.util.Objects;
  *
  * @author italo.francis
  */
-public class Altere implements Comparable<Altere>{
-    
+public class Altere implements Comparable<Altere> {
+
     private String numSerie;
     private String MAC;
-    private String numRel; 
+    private String numRel;
     private String tpFonte;
     private String tpCarga;
     private String rtc;
@@ -63,10 +63,6 @@ public class Altere implements Comparable<Altere>{
         this.date = date;
     }
 
-    
-    
-    
-    
     public String getTpFonte() {
         return tpFonte;
     }
@@ -139,7 +135,6 @@ public class Altere implements Comparable<Altere>{
         this.CUX2 = CUX2;
     }
 
-    
     public String getCUX3() {
         return CUX3;
     }
@@ -172,16 +167,11 @@ public class Altere implements Comparable<Altere>{
         this.CUX6 = CUX6;
     }
 
-   
-    
-  
-    
     @Override
     public int hashCode() {
         int hash = 7;
         return hash;
     }
-
 
     @Override
     public boolean equals(Object obj) {
@@ -209,31 +199,17 @@ public class Altere implements Comparable<Altere>{
 
     @Override
     public String toString() {
-        return "Altere: " + "Serie = " + numSerie + ", MAC = " + MAC + ", Religador = " + numRel + 
-                ", CIX1 = " + CIX1 + ", CIX2 = " + CIX2 + ", CIX3 = " + CIX3 + ", CIXN = " + CIXN +
-                ", CUX1 = " + CUX1 + ", CUX2 = " + CUX2 + ", CUX3 = " + CUX3 + ", CUX4 = " + CUX4 + 
-                ", CUX5 = " + CUX5 + ", CUX6 = " + CUX6;
+        return "Altere: " + "Serie = " + numSerie + ", MAC = " + MAC + ", Religador = " + numRel
+                + ", CIX1 = " + CIX1 + ", CIX2 = " + CIX2 + ", CIX3 = " + CIX3 + ", CIXN = " + CIXN
+                + ", CUX1 = " + CUX1 + ", CUX2 = " + CUX2 + ", CUX3 = " + CUX3 + ", CUX4 = " + CUX4
+                + ", CUX5 = " + CUX5 + ", CUX6 = " + CUX6;
     }
-
-    
-
-   
 
     @Override
     public int compareTo(Altere altere) {
-       
-		
-          return  numSerie.compareTo(altere.getNumSerie());
-      
-	}
-   
-    
 
-   
-    
-    
-    
-    
-    
-    
+        return numSerie.compareTo(altere.getNumSerie());
+
+    }
+
 }
