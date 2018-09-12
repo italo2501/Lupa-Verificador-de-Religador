@@ -23,7 +23,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import model.Altere;
 import model.AltereModel;
 
-
 /**
  *
  * @author italo.francis
@@ -287,7 +286,7 @@ public class SerialRelForm extends javax.swing.JFrame {
 
                     if (line.contains("Data atual (RTC)")) {
 
-                        String rtc = line.replaceAll("[A-Za-z()]", "").replaceAll(" [0-9][0-9]\\/[0-9][0-9]\\/[0-9][0-9][0-9][0-9]", "").replaceAll(": ", "");
+                        String rtc = line.replaceAll("[A-Za-z()]", "").replaceAll("   :", "");
                         listaRtc.add(rtc);
                     }
 
@@ -462,15 +461,13 @@ public class SerialRelForm extends javax.swing.JFrame {
 
             String qtd = String.valueOf(listaAltere.size());
             jTextcaixacoleta.setText(qtd);
-            
-            
+
             for (int i = 0; i < listaAltere.size(); i++) {
                 Altere get = listaAltere.get(i);
-                System.out.println("Coleta: " +get);
+                System.out.println("Coleta: " + get);
             }
-            
-            
-            
+
+
     }//GEN-LAST:event_btnTxtActionPerformed
     }
     private void btnCSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCSVActionPerformed
@@ -533,8 +530,7 @@ public class SerialRelForm extends javax.swing.JFrame {
             for (int i = 0; i < listaSerial.size(); i++) {
 
                 Altere altereCSV = new Altere();
-                 
-                 
+
                 altereCSV.setNumSerie(listaSerial.get(i));
                 altereCSV.setMAC(listaMAC.get(i));
                 altereCSV.setNumRel(listaSerialRel.get(i));
@@ -553,16 +549,14 @@ public class SerialRelForm extends javax.swing.JFrame {
             String qtd = String.valueOf(listaCSV.size());
             jTextCsv.setText(qtd);
 
-           
         }
 
-        
         for (int i = 0; i < listaCSV.size(); i++) {
             Altere get = listaCSV.get(i);
             System.out.println(get);
-            
+
         }
-        
+
 
     }//GEN-LAST:event_btnCSVActionPerformed
 
@@ -570,16 +564,6 @@ public class SerialRelForm extends javax.swing.JFrame {
         List<Altere> listaRenagade = new ArrayList<>();
         boolean valida = false;
         int qtdfalha = 0;
-
-      
-        
-        
-            
-        
-        
-        
- 
-        
 
         if (listaAltere.isEmpty() && listaCSV.isEmpty()) {
 
@@ -598,12 +582,11 @@ public class SerialRelForm extends javax.swing.JFrame {
                 Altere atere = listaAltere.get(i);
 
                 if (listaCSV != null && listaCSV.contains(atere)) {
-                  //  System.out.println("Aprovado no teste: " + listaAltere.get(i));
+                    //  System.out.println("Aprovado no teste: " + listaAltere.get(i));
 
                 } else {
 
                     //System.out.println("Reprovado no teste                : " + listaAltere.get(i));
-
                     String erro = String.valueOf(listaAltere.get(i).getNumSerie());
                     qtdfalha++;
 
@@ -661,7 +644,6 @@ public class SerialRelForm extends javax.swing.JFrame {
         List<String> listaVR = new ArrayList<>();
         List<String> listaVS = new ArrayList<>();
         List<String> listaVT = new ArrayList<>();
-       
 
         JFileChooser arqtxt = new JFileChooser();// criaS janela de busca
         arqtxt.setDialogTitle("Selecionar txt"); // Titulo da janela de busca
@@ -669,7 +651,7 @@ public class SerialRelForm extends javax.swing.JFrame {
         arqtxt.setFileSelectionMode(JFileChooser.FILES_ONLY);
         FileNameExtensionFilter filter = new FileNameExtensionFilter("document", "txt");
         arqtxt.setFileFilter(filter);
-        
+
         int retorno = arqtxt.showOpenDialog(this);
 
         if (retorno == JFileChooser.APPROVE_OPTION) {
@@ -686,10 +668,9 @@ public class SerialRelForm extends javax.swing.JFrame {
                 }
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
                 try {
-                   
-                    
+
                     while ((line = bufferedReader.readLine()) != null) {
-                            
+
                         if (line.contains("SERIAL=")) {
 
                             String serial = line.replaceAll("[A-Z=]", "");
@@ -775,7 +756,6 @@ public class SerialRelForm extends javax.swing.JFrame {
                             //System.out.println(vs);
                             listaVS.add(vs);
                             parametro.setCUX5(vs);
-                            
 
                         }
 
@@ -792,18 +772,15 @@ public class SerialRelForm extends javax.swing.JFrame {
                 } catch (IOException ex) {
                     Logger.getLogger(SerialRelForm.class.getName()).log(Level.SEVERE, null, ex);
                 }
-           
 
-               listaParametro.add(parametro);
+                listaParametro.add(parametro);
             }
 
         }
 
-        
-        
-            for (int i = 0; i < listaParametro.size(); i++) {
+        for (int i = 0; i < listaParametro.size(); i++) {
             Altere get = listaParametro.get(i);
-                System.out.println("Parametro: " +get);
+            System.out.println("Parametro: " + get);
         }
     }//GEN-LAST:event_btnParametroActionPerformed
 

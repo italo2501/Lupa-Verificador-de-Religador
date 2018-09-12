@@ -15,31 +15,32 @@ import javax.swing.table.AbstractTableModel;
  * @author italo.francis
  */
 public class AltereModel extends AbstractTableModel {
-    
-     private final List<Altere> dados = new ArrayList<>();
-     private final String[] colunas = {"Serial", "MAC","TP Fonte", "TP Carga", "Religador", "CIX1", "CIX2","CIX3", "CIXN","CUX1", "CUX2", "CUX3", "CUX4", "CUX5", "CUX6", "RTC","Tempo Operação" };
-      DecimalFormat df = new DecimalFormat("0.0");  
-     
-     @Override
+
+    private final List<Altere> dados = new ArrayList<>();
+    private final String[] colunas = {"Serial", "MAC", "TP Fonte", "TP Carga", "Religador", "CIX1", "CIX2",
+        "CIX3", "CIXN", "CUX1", "CUX2", "CUX3", "CUX4", "CUX5", "CUX6", "RTC",
+        "Tempo Operação"};
+    DecimalFormat df = new DecimalFormat("0.0");
+
+    @Override
     public String getColumnName(int column) {
 
         return colunas[column];
 
     }
-     
-     
+
     @Override
     public int getRowCount() {
-     
-         return dados.size();
+
+        return dados.size();
     }
 
     @Override
     public int getColumnCount() {
-         return colunas.length;
+        return colunas.length;
     }
 
-  @Override
+    @Override
     public Object getValueAt(int linha, int coluna) {
 
         switch (coluna) {
@@ -78,28 +79,23 @@ public class AltereModel extends AbstractTableModel {
                 return dados.get(linha).getRtc();
             case 16:
                 return dados.get(linha).getDate();
-
         }
         return null;
 
     }
 
-    
-    
-     public void addRow(Altere altere) {
+    public void addRow(Altere altere) {
 
         this.dados.add(altere);
         this.fireTableDataChanged();
 
     }
-    
-     
-      public void removeRow() {
+
+    public void removeRow() {
 
         this.dados.removeAll(dados);
         this.fireTableDataChanged();
 
     }
-     
-    
+
 }
