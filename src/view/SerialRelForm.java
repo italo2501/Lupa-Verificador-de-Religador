@@ -65,7 +65,10 @@ public class SerialRelForm extends javax.swing.JFrame {
         JtextAerros = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         jTextFalhas = new javax.swing.JTextField();
-        btnParametro = new javax.swing.JButton();
+        jcoletaText = new javax.swing.JLabel();
+        jLabelColeta = new javax.swing.JLabel();
+        jCsv = new javax.swing.JLabel();
+        jLabelCsv = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Lupa Verifica Serial Religador");
@@ -82,6 +85,7 @@ public class SerialRelForm extends javax.swing.JFrame {
             }
         });
 
+        txtTable.setAutoCreateRowSorter(true);
         txtTable.setForeground(new java.awt.Color(0, 0, 0));
         txtTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -96,6 +100,9 @@ public class SerialRelForm extends javax.swing.JFrame {
         ));
         txtTable.setAlignmentX(1.0F);
         txtTable.setAlignmentY(1.0F);
+        txtTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        txtTable.setColumnSelectionAllowed(true);
+        txtTable.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         txtTable.setGridColor(new java.awt.Color(255, 255, 255));
         txtTable.setSelectionBackground(new java.awt.Color(153, 153, 153));
         txtTable.setSelectionForeground(new java.awt.Color(0, 0, 0));
@@ -138,18 +145,20 @@ public class SerialRelForm extends javax.swing.JFrame {
 
         jLabel3.setText("Falhas");
 
-        btnParametro.setText("Parametro");
-        btnParametro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnParametroActionPerformed(evt);
-            }
-        });
+        jcoletaText.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jcoletaText.setText("Coletas:");
+
+        jLabelColeta.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+
+        jCsv.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jCsv.setText("CSV:");
+
+        jLabelCsv.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -167,32 +176,48 @@ public class SerialRelForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnTxt)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnParametro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCSV)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnProcessar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 781, Short.MAX_VALUE)
-                        .addComponent(btnLimpar))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1228, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnCSV, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnProcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jcoletaText)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabelColeta, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jCsv)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabelCsv)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnLimpar))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1216, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
-                        .addComponent(btnCSV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnProcessar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnParametro)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jcoletaText)
+                            .addComponent(jLabelColeta, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jCsv)
+                            .addComponent(jLabelCsv)))
+                    .addComponent(btnProcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCSV, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -210,7 +235,10 @@ public class SerialRelForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -428,6 +456,7 @@ public class SerialRelForm extends javax.swing.JFrame {
                     altere.setCUX6(listaCUX6.get(i));
                     altere.setRtc(listaRtc.get(i));
                     altere.setDate(listadate.get(i));
+                    
                     if (!listaAltere.contains(altere)) {
                         listaAltere.add(i, altere);
 
@@ -461,6 +490,7 @@ public class SerialRelForm extends javax.swing.JFrame {
 
             String qtd = String.valueOf(listaAltere.size());
             jTextcaixacoleta.setText(qtd);
+            jLabelColeta.setText(qtd);
 
             for (int i = 0; i < listaAltere.size(); i++) {
                 Altere get = listaAltere.get(i);
@@ -548,6 +578,8 @@ public class SerialRelForm extends javax.swing.JFrame {
 
             String qtd = String.valueOf(listaCSV.size());
             jTextCsv.setText(qtd);
+            jLabelCsv.setText(qtd);
+            
 
         }
 
@@ -630,160 +662,6 @@ public class SerialRelForm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnLimparActionPerformed
 
-    private void btnParametroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParametroActionPerformed
-        String line = null;
-        String[] txt;
-        File[] files = null;
-        List<String> listaIA = new ArrayList<>();
-        List<String> listaIB = new ArrayList<>();
-        List<String> listaIC = new ArrayList<>();
-        List<String> listaIN = new ArrayList<>();
-        List<String> listaVA = new ArrayList<>();
-        List<String> listaVB = new ArrayList<>();
-        List<String> listaVC = new ArrayList<>();
-        List<String> listaVR = new ArrayList<>();
-        List<String> listaVS = new ArrayList<>();
-        List<String> listaVT = new ArrayList<>();
-
-        JFileChooser arqtxt = new JFileChooser();// criaS janela de busca
-        arqtxt.setDialogTitle("Selecionar txt"); // Titulo da janela de busca
-        arqtxt.setMultiSelectionEnabled(true);
-        arqtxt.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("document", "txt");
-        arqtxt.setFileFilter(filter);
-
-        int retorno = arqtxt.showOpenDialog(this);
-
-        if (retorno == JFileChooser.APPROVE_OPTION) {
-
-            files = arqtxt.getSelectedFiles();
-
-            for (File file : files) {
-                FileReader fileReader = null;
-                Altere parametro = new Altere();
-                try {
-                    fileReader = new FileReader(file);
-                } catch (FileNotFoundException ex) {
-                    Logger.getLogger(SerialRelForm.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                BufferedReader bufferedReader = new BufferedReader(fileReader);
-                try {
-
-                    while ((line = bufferedReader.readLine()) != null) {
-
-                        if (line.contains("SERIAL=")) {
-
-                            String serial = line.replaceAll("[A-Z=]", "");
-                            //System.out.println(serial);
-                            parametro.setNumRel(serial);
-
-                        }
-
-                        if (line.contains("IA=")) {
-
-                            String ia = line.replaceAll("[A-Z=]", "");
-                            //System.out.println(ia);
-                            listaIA.add(ia);
-                            parametro.setCIX1(ia);
-
-                        }
-
-                        if (line.contains("IB=")) {
-
-                            String ib = line.replaceAll("[A-Z=]", "");
-                            //System.out.println(ib);
-                            listaIB.add(ib);
-                            parametro.setCIX2(ib);
-                        }
-
-                        if (line.contains("IC=")) {
-
-                            String ic = line.replaceAll("[A-Z=]", "");
-                            //System.out.println(ic);
-                            listaIC.add(ic);
-                            parametro.setCIX3(ic);
-
-                        }
-
-                        if (line.contains("IN=")) {
-
-                            String in = line.replaceAll("[A-Z=]", "");
-                            //System.out.println(in);
-                            listaIN.add(in);
-                            parametro.setCIXN(in);
-
-                        }
-
-                        if (line.contains("VA=")) {
-
-                            String va = line.replaceAll("[A-Z=]", "");
-                            //System.out.println(va);
-                            listaVA.add(va);
-                            parametro.setCUX1(va);
-
-                        }
-
-                        if (line.contains("VB=")) {
-
-                            String vb = line.replaceAll("[A-Z=]", "");
-                            //System.out.println(vb);
-                            listaVB.add(vb);
-                            parametro.setCUX2(vb);
-
-                        }
-
-                        if (line.contains("VC=")) {
-
-                            String vc = line.replaceAll("[A-Z=]", "");
-                            //System.out.println(vc);
-                            listaVC.add(vc);
-                            parametro.setCUX3(vc);
-
-                        }
-
-                        if (line.contains("VR=")) {
-
-                            String vr = line.replaceAll("[A-Z=]", "");
-                            //System.out.println(vr);
-                            listaVR.add(vr);
-                            parametro.setCUX4(vr);
-
-                        }
-
-                        if (line.contains("VS=")) {
-
-                            String vs = line.replaceAll("[A-Z=]", "");
-                            //System.out.println(vs);
-                            listaVS.add(vs);
-                            parametro.setCUX5(vs);
-
-                        }
-
-                        if (line.contains("VT=")) {
-
-                            String vt = line.replaceAll("[A-Z=]", "");
-                            //System.out.println(vt);
-                            listaVT.add(vt);
-                            parametro.setCUX6(vt);
-
-                        }
-
-                    }
-                } catch (IOException ex) {
-                    Logger.getLogger(SerialRelForm.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-                listaParametro.add(parametro);
-            }
-
-        }
-
-        for (int i = 0; i < listaParametro.size(); i++) {
-            Altere get = listaParametro.get(i);
-            System.out.println("Parametro: " + get);
-        }
-    }//GEN-LAST:event_btnParametroActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -823,18 +701,21 @@ public class SerialRelForm extends javax.swing.JFrame {
     private javax.swing.JTextArea JtextAerros;
     private javax.swing.JButton btnCSV;
     private javax.swing.JButton btnLimpar;
-    private javax.swing.JButton btnParametro;
     private javax.swing.JToggleButton btnProcessar;
     private javax.swing.JToggleButton btnTxt;
+    private javax.swing.JLabel jCsv;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabelColeta;
+    private javax.swing.JLabel jLabelCsv;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextCsv;
     private javax.swing.JTextField jTextFalhas;
     private javax.swing.JTextField jTextcaixacoleta;
+    private javax.swing.JLabel jcoletaText;
     private javax.swing.JTable txtTable;
     // End of variables declaration//GEN-END:variables
 }
