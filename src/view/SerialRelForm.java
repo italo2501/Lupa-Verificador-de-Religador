@@ -19,7 +19,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.JTableHeader;
 import model.Altere;
 import model.AltereModel;
 
@@ -38,7 +42,58 @@ public class SerialRelForm extends javax.swing.JFrame {
     public SerialRelForm() {
         initComponents();
 
+         this.setIconImage((new javax.swing.ImageIcon(getClass().getResource("/images/religador.png")).getImage()));
+        
+        
         txtTable.setModel(altereModel);
+       
+       //******************** Centralizando cabeçalho das colunas  ********************//
+       JTableHeader header =  txtTable.getTableHeader();
+       DefaultTableCellRenderer centralizado = (DefaultTableCellRenderer) header.getDefaultRenderer();
+       centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+             
+       //******************** Centralizando celulas das colunas ********************//
+         centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+         txtTable.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+         txtTable.getColumnModel().getColumn(1).setCellRenderer(centralizado);  
+         txtTable.getColumnModel().getColumn(2).setCellRenderer(centralizado);
+         txtTable.getColumnModel().getColumn(3).setCellRenderer(centralizado); 
+         txtTable.getColumnModel().getColumn(4).setCellRenderer(centralizado);
+         txtTable.getColumnModel().getColumn(5).setCellRenderer(centralizado);
+         txtTable.getColumnModel().getColumn(6).setCellRenderer(centralizado);
+         txtTable.getColumnModel().getColumn(7).setCellRenderer(centralizado);  
+         txtTable.getColumnModel().getColumn(8).setCellRenderer(centralizado);
+         txtTable.getColumnModel().getColumn(9).setCellRenderer(centralizado); 
+         txtTable.getColumnModel().getColumn(10).setCellRenderer(centralizado);
+         txtTable.getColumnModel().getColumn(11).setCellRenderer(centralizado);
+         txtTable.getColumnModel().getColumn(12).setCellRenderer(centralizado);
+         txtTable.getColumnModel().getColumn(13).setCellRenderer(centralizado); 
+         txtTable.getColumnModel().getColumn(14).setCellRenderer(centralizado);
+         txtTable.getColumnModel().getColumn(15).setCellRenderer(centralizado);
+         txtTable.getColumnModel().getColumn(16).setCellRenderer(centralizado);
+          
+          
+         
+         
+         
+        txtTable.getColumnModel().getColumn(0).setPreferredWidth(80);
+        txtTable.getColumnModel().getColumn(1).setPreferredWidth(120);
+        txtTable.getColumnModel().getColumn(2).setPreferredWidth(70);
+        txtTable.getColumnModel().getColumn(3).setPreferredWidth(70);
+        txtTable.getColumnModel().getColumn(4).setPreferredWidth(60);
+        txtTable.getColumnModel().getColumn(5).setPreferredWidth(50);
+        txtTable.getColumnModel().getColumn(6).setPreferredWidth(50);
+        txtTable.getColumnModel().getColumn(7).setPreferredWidth(50);
+        txtTable.getColumnModel().getColumn(8).setPreferredWidth(50);
+        txtTable.getColumnModel().getColumn(9).setPreferredWidth(50);
+        txtTable.getColumnModel().getColumn(10).setPreferredWidth(50);
+        txtTable.getColumnModel().getColumn(11).setPreferredWidth(50);
+        txtTable.getColumnModel().getColumn(12).setPreferredWidth(50);
+        txtTable.getColumnModel().getColumn(13).setPreferredWidth(50);
+        txtTable.getColumnModel().getColumn(14).setPreferredWidth(50);
+        txtTable.getColumnModel().getColumn(15).setPreferredWidth(150);
+        txtTable.getColumnModel().getColumn(16).setPreferredWidth(120);
+       
     }
 
     /**
@@ -136,16 +191,22 @@ public class SerialRelForm extends javax.swing.JFrame {
         JtextAerros.setRows(5);
         jScrollPane2.setViewportView(JtextAerros);
 
+        jcoletaText.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jcoletaText.setText("Coletas:");
 
+        jLabelColeta.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabelColeta.setText("0");
 
+        jCsv.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jCsv.setText("CSV:");
 
+        jLabelCsv.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabelCsv.setText("0");
 
+        jcoletaText2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jcoletaText2.setText("Falhas:");
 
+        jLabelFalha.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabelFalha.setText("0");
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Lupa logo.PNG"))); // NOI18N
@@ -167,7 +228,7 @@ public class SerialRelForm extends javax.swing.JFrame {
                         .addComponent(btnProcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                        .addGap(18, 18, Short.MAX_VALUE)
                         .addComponent(jcoletaText)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabelColeta, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -666,7 +727,6 @@ public class SerialRelForm extends javax.swing.JFrame {
 
     private void btnProcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessarActionPerformed
         List<Altere> listaRenagade = new ArrayList<>();
-        boolean valida = false;
         int qtdfalha = 0;
 
         if (listaAltere.isEmpty() && listaCSV.isEmpty()) {
