@@ -1,17 +1,21 @@
 # Lupa-Verificador-de-Religador
 
-- Software desenvolvido para verficação de parâmetros do Equipamento ALTERE V3 (TAVRIDA)
+- Software desenvolvido para verficação de parâmetros do Equipamento ALTERE V3 de acordo com o seu respectivo religador
 
-# Leitura das seguintes funcionalidades: 
+# Leitura das seguintes atributos do arquivo de coleta: 
 
-- Coleta número de serie do Altere
+-  Número de serie do Altere
 
-- Coleta MAC do Altere
+-  MAC 
 
-- Coleta Relação de Tensão e Corrente
+-  Relação de Tensão e Corrente
 
-- Coleta Número de serie do Religador
+-  Número de serie do Religador
 
-- Coleta o coeficiente de calibração específico das faixas de corrente IA, IB, IC, IN salvo no equipamento ALTERE V3 
+- Coeficientes de calibração específicos das faixas de corrente IA, IB, IC, IN 
 
-- Coleta o coeficiente de calibração específico das faixas de Tensão VA, VB, VC, VR, VS, VT salvo no equipamento ALTERE V3
+- Coeficientes de calibração específicos das faixas de Tensão VA, VB, VC, VR, VS, VT 
+
+- RTC Data e Hora atualizados
+
+- Tempo de operação 
