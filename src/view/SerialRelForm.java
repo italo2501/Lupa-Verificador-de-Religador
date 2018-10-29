@@ -616,7 +616,8 @@ public class SerialRelForm extends javax.swing.JFrame {
 
                     String serialRel = CSV[2];
                     listaSerialRel.add(serialRel);
-                 
+                    
+
                 }
 
             } catch (FileNotFoundException e) {
