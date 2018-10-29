@@ -63,7 +63,6 @@ public class SerialRelForm extends javax.swing.JFrame {
         jLabelColeta = new javax.swing.JLabel();
         jCsv = new javax.swing.JLabel();
         jLabelCsv = new javax.swing.JLabel();
-        jcoletaText1 = new javax.swing.JLabel();
         jcoletaText2 = new javax.swing.JLabel();
         jLabelFalha = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -137,25 +136,16 @@ public class SerialRelForm extends javax.swing.JFrame {
         JtextAerros.setRows(5);
         jScrollPane2.setViewportView(JtextAerros);
 
-        jcoletaText.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jcoletaText.setText("Coletas:");
 
-        jLabelColeta.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelColeta.setText("0");
 
-        jCsv.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jCsv.setText("CSV:");
 
-        jLabelCsv.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelCsv.setText("0");
 
-        jcoletaText1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jcoletaText1.setText("Coletas:");
-
-        jcoletaText2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jcoletaText2.setText("Falhas:");
 
-        jLabelFalha.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelFalha.setText("0");
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Lupa logo.PNG"))); // NOI18N
@@ -164,10 +154,12 @@ public class SerialRelForm extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(btnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCSV, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -175,7 +167,7 @@ public class SerialRelForm extends javax.swing.JFrame {
                         .addComponent(btnProcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                         .addComponent(jcoletaText)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabelColeta, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -188,15 +180,8 @@ public class SerialRelForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelFalha, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(238, 238, 238)
-                        .addComponent(jLabel4)
-                        .addContainerGap())
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1)))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 531, Short.MAX_VALUE)
-                    .addComponent(jcoletaText1)
-                    .addGap(0, 531, Short.MAX_VALUE)))
+                        .addComponent(jLabel4)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,21 +206,13 @@ public class SerialRelForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jcoletaText1)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -455,7 +432,7 @@ public class SerialRelForm extends javax.swing.JFrame {
                         altere.setNumRel(listaSerialRel.get(i));
                     } catch (Exception e) {
                         altere.setNumRel("Null");
-                       JOptionPane.showMessageDialog(null, "Faltando Serial do religador!");
+                        JOptionPane.showMessageDialog(null, "Faltando Serial do religador!");
                     }
 
                     try {
@@ -477,7 +454,7 @@ public class SerialRelForm extends javax.swing.JFrame {
                     } catch (Exception e) {
                         altere.setCIX1("Null");
                         JOptionPane.showMessageDialog(null, "Faltando CIX1!");
-                        
+
                     }
 
                     try {
@@ -528,7 +505,6 @@ public class SerialRelForm extends javax.swing.JFrame {
                         altere.setCUX4("Null");
                         JOptionPane.showMessageDialog(null, "Faltando CUX4!");
                     }
-                    
 
                     try {
                         altere.setCUX5(listaCUX5.get(i));
@@ -558,7 +534,6 @@ public class SerialRelForm extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, "Faltando Uptime!");
                     }
 
-                    
                     if (!listaAltere.contains(altere)) {
                         listaAltere.add(i, altere);
 
@@ -570,7 +545,6 @@ public class SerialRelForm extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, "Arquivo já selecionado!");
                         break;
                     }
-
                 }
 
                 if (valida == true) {
@@ -579,7 +553,6 @@ public class SerialRelForm extends javax.swing.JFrame {
                         Altere get = listaAltere.get(i);
 
                         altereModel.addRow(get);
-
                     }
 
                 }
@@ -591,14 +564,13 @@ public class SerialRelForm extends javax.swing.JFrame {
             }
 
             String qtd = String.valueOf(listaAltere.size());
-           
+
             jLabelColeta.setText(qtd);
 
             for (int i = 0; i < listaAltere.size(); i++) {
                 Altere get = listaAltere.get(i);
                 System.out.println("Coleta: " + get);
             }
-
 
     }//GEN-LAST:event_btnTxtActionPerformed
     }
@@ -637,15 +609,14 @@ public class SerialRelForm extends javax.swing.JFrame {
                     CSV = linha.split(csvDivisor);
 
                     String serial = CSV[0].replaceAll("[\\s]", "");
-
                     listaSerial.add(serial);
+                    
                     String MAC = CSV[1];
-
                     listaMAC.add(MAC);
+
                     String serialRel = CSV[2];
-
                     listaSerialRel.add(serialRel);
-
+                 
                 }
 
             } catch (FileNotFoundException e) {
@@ -679,9 +650,8 @@ public class SerialRelForm extends javax.swing.JFrame {
             }
 
             String qtd = String.valueOf(listaCSV.size());
-           
+
             jLabelCsv.setText(qtd);
-            
 
         }
 
@@ -690,7 +660,6 @@ public class SerialRelForm extends javax.swing.JFrame {
             System.out.println(get);
 
         }
-
 
     }//GEN-LAST:event_btnCSVActionPerformed
 
@@ -716,35 +685,37 @@ public class SerialRelForm extends javax.swing.JFrame {
                 Altere atere = listaAltere.get(i);
 
                 if (listaCSV != null && listaCSV.contains(atere)) {
-                    //  System.out.println("Aprovado no teste: " + listaAltere.get(i));
+                    System.out.println("Aprovado no teste: " + listaAltere.get(i));
 
                 } else {
 
-                    //System.out.println("Reprovado no teste                : " + listaAltere.get(i));
+                    System.out.println("Reprovado no teste : " + listaAltere.get(i));
                     String erro = String.valueOf(listaAltere.get(i).getNumSerie());
                     qtdfalha++;
 
                     JtextAerros.append(erro + "\n");
-
                 }
-
             }
 
             String convFalhas = String.valueOf(qtdfalha);
-        
+
             jLabelFalha.setText(convFalhas);
 
             if (listaCSV.containsAll(listaAltere) == true) {
 
                 btnProcessar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-process-50(3).png"))); // NOI18N
+                btnProcessar.setOpaque(true);
+                btnProcessar.setBackground(Color.green);
 
             } else {
+                
                 btnProcessar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-process-50_1.png"))); // NOI18N
-
+                btnProcessar.setOpaque(true);
+                btnProcessar.setBackground(Color.red);
+                
                 for (int i = 0; i < listaRenagade.size(); i++) {
                     String falha = String.valueOf(listaRenagade.get(i));
                     JtextAerros.setText(falha);
-
                 }
             }
 
@@ -757,11 +728,13 @@ public class SerialRelForm extends javax.swing.JFrame {
         listaAltere.removeAll(listaAltere);
         listaCSV.removeAll(listaCSV);
         btnProcessar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-process-52.png"))); // NOI18N
+        btnProcessar.setOpaque(false);
         altereModel.removeRow();
         JtextAerros.setText(null);
         jLabelColeta.setText("0");
         jLabelCsv.setText("0");
         jLabelFalha.setText("0");
+        ///adaada
 
     }//GEN-LAST:event_btnLimparActionPerformed
 
@@ -815,7 +788,6 @@ public class SerialRelForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel jcoletaText;
-    private javax.swing.JLabel jcoletaText1;
     private javax.swing.JLabel jcoletaText2;
     private javax.swing.JTable txtTable;
     // End of variables declaration//GEN-END:variables
