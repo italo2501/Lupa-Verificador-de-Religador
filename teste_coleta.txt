@@ -244,29 +244,6 @@ OPEN:  TPulse=15ms , TWait=100ms , VCoil=215V , MinVCoil=100V
 CLOSE: TPulse=70ms , TWait=100ms , VCoil=215V , MinVCoil=100V
        Ctrl=0x0022: P2=1 
 
-root:/ # rcl
-
-RELIGADOR: Fabricante: TAVRIDA, Modelo: OSM25
-
-PARAMETROS          ABERTURA       FECHAMENTO
-Tempo Pulso       : 00015ms        00070ms
-Tempo Verificacao : 00100ms        00100ms
-Tensao na bobina  : 00215V         00215V
-Tensao minima     : 00100V         00100V
-
-Parametros do ACIONADOR
-Tensao nominal: 215V, Frequencia PWM: 0.5kHz
-
-Parametros de DESGASTE ELET/MEC
-INOM: Numero Abert. x Corrente Nom. : 10000 x 00630A
-IMAX: Numero Abert. x Corrente Max. : 00005 x 12000A
-Numero Maximo Operacoes Mecanicas   : 10000
-
-Parametros TC/TP
-TC Fase: 1000A:1A,  TC Terra: 1000A:1A
-TP Fonte: 34000V:4V,  TP Carga: 34000V:4V
-
-
 root:/ # calib
 
 --- Dados --- 
