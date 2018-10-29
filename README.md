@@ -22,3 +22,5 @@
 
 
 # Validadção do Religador atrelado ao seu respctivo ALTERE V3
+
+Após a leitura dos atributos no arquivo de coleta do(dos) equipamento(s), é realizada uma verificação para a garantia que o os atributos estão parametrizados com a configuração correta e o 
