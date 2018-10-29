@@ -2,13 +2,13 @@
 
 - Software desenvolvido para verficação de parâmetros do Equipamento ALTERE V3 (TAVRIDA)
 
-# Funcionalidades: 
+# Leitura das seguintes funcionalidades: 
 
 - Coleta número de serie do Altere
 
 - Coleta MAC do Altere
 
-- Coleta Relação de Tensão
+- Coleta Relação de Tensão e Corrente
 
 - Coleta Número de serie do Religador
 
