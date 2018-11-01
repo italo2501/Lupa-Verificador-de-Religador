@@ -11,9 +11,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,40 +46,35 @@ public class SerialRelForm extends javax.swing.JFrame {
     public SerialRelForm() {
         initComponents();
 
-         this.setIconImage((new javax.swing.ImageIcon(getClass().getResource("/images/religador.png")).getImage()));
-        
-        
+        this.setIconImage((new javax.swing.ImageIcon(getClass().getResource("/images/religador.png")).getImage()));
+
         txtTable.setModel(altereModel);
-       
-       //******************** Centralizando cabeçalho das colunas  ********************//
-       JTableHeader header =  txtTable.getTableHeader();
-       DefaultTableCellRenderer centralizado = (DefaultTableCellRenderer) header.getDefaultRenderer();
-       centralizado.setHorizontalAlignment(SwingConstants.CENTER);
-             
-       //******************** Centralizando celulas das colunas ********************//
-         centralizado.setHorizontalAlignment(SwingConstants.CENTER);
-         txtTable.getColumnModel().getColumn(0).setCellRenderer(centralizado);
-         txtTable.getColumnModel().getColumn(1).setCellRenderer(centralizado);  
-         txtTable.getColumnModel().getColumn(2).setCellRenderer(centralizado);
-         txtTable.getColumnModel().getColumn(3).setCellRenderer(centralizado); 
-         txtTable.getColumnModel().getColumn(4).setCellRenderer(centralizado);
-         txtTable.getColumnModel().getColumn(5).setCellRenderer(centralizado);
-         txtTable.getColumnModel().getColumn(6).setCellRenderer(centralizado);
-         txtTable.getColumnModel().getColumn(7).setCellRenderer(centralizado);  
-         txtTable.getColumnModel().getColumn(8).setCellRenderer(centralizado);
-         txtTable.getColumnModel().getColumn(9).setCellRenderer(centralizado); 
-         txtTable.getColumnModel().getColumn(10).setCellRenderer(centralizado);
-         txtTable.getColumnModel().getColumn(11).setCellRenderer(centralizado);
-         txtTable.getColumnModel().getColumn(12).setCellRenderer(centralizado);
-         txtTable.getColumnModel().getColumn(13).setCellRenderer(centralizado); 
-         txtTable.getColumnModel().getColumn(14).setCellRenderer(centralizado);
-         txtTable.getColumnModel().getColumn(15).setCellRenderer(centralizado);
-         txtTable.getColumnModel().getColumn(16).setCellRenderer(centralizado);
-          
-          
-         
-         
-         
+
+        //******************** Centralizando cabeçalho das colunas  ********************//
+        JTableHeader header = txtTable.getTableHeader();
+        DefaultTableCellRenderer centralizado = (DefaultTableCellRenderer) header.getDefaultRenderer();
+        centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+
+        //******************** Centralizando celulas das colunas ********************//
+        centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+        txtTable.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+        txtTable.getColumnModel().getColumn(1).setCellRenderer(centralizado);
+        txtTable.getColumnModel().getColumn(2).setCellRenderer(centralizado);
+        txtTable.getColumnModel().getColumn(3).setCellRenderer(centralizado);
+        txtTable.getColumnModel().getColumn(4).setCellRenderer(centralizado);
+        txtTable.getColumnModel().getColumn(5).setCellRenderer(centralizado);
+        txtTable.getColumnModel().getColumn(6).setCellRenderer(centralizado);
+        txtTable.getColumnModel().getColumn(7).setCellRenderer(centralizado);
+        txtTable.getColumnModel().getColumn(8).setCellRenderer(centralizado);
+        txtTable.getColumnModel().getColumn(9).setCellRenderer(centralizado);
+        txtTable.getColumnModel().getColumn(10).setCellRenderer(centralizado);
+        txtTable.getColumnModel().getColumn(11).setCellRenderer(centralizado);
+        txtTable.getColumnModel().getColumn(12).setCellRenderer(centralizado);
+        txtTable.getColumnModel().getColumn(13).setCellRenderer(centralizado);
+        txtTable.getColumnModel().getColumn(14).setCellRenderer(centralizado);
+        txtTable.getColumnModel().getColumn(15).setCellRenderer(centralizado);
+        txtTable.getColumnModel().getColumn(16).setCellRenderer(centralizado);
+
         txtTable.getColumnModel().getColumn(0).setPreferredWidth(80);
         txtTable.getColumnModel().getColumn(1).setPreferredWidth(120);
         txtTable.getColumnModel().getColumn(2).setPreferredWidth(70);
@@ -91,9 +90,13 @@ public class SerialRelForm extends javax.swing.JFrame {
         txtTable.getColumnModel().getColumn(12).setPreferredWidth(50);
         txtTable.getColumnModel().getColumn(13).setPreferredWidth(50);
         txtTable.getColumnModel().getColumn(14).setPreferredWidth(50);
-        txtTable.getColumnModel().getColumn(15).setPreferredWidth(150);
+        txtTable.getColumnModel().getColumn(15).setPreferredWidth(180);
         txtTable.getColumnModel().getColumn(16).setPreferredWidth(120);
-       
+
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        java.util.Date d = new Date();
+        String dStr = dateFormat.format(d);
+        System.out.println(dStr);
     }
 
     /**
@@ -330,143 +333,211 @@ public class SerialRelForm extends javax.swing.JFrame {
                     if (line.contains("Uptime:")) {
 
                         String date = line.replaceAll("Uptime: ", "");
-                        listadate.add(date);
+
+                        try {
+                            listadate.add(date);
+                        } catch (Exception e) {
+                            listadate.add("Null");
+                        }
 
                     }
 
                     if (line.contains("Numero do ponto:")) {
 
                         String serial = line.replaceAll("[\\sA-Za-z:]", "");
-                        listaSerial.add(serial);
+
+                        try {
+                            listaSerial.add(serial);
+                        } catch (Exception e) {
+                            listaSerial.add("Null");
+                        }
 
                     }
                     if (line.contains("Endereco MAC:")) {
 
                         String mac = line.replaceAll("Endereco MAC: ", "");
-                        listaMAC.add(mac);
-                        // System.out.println(mac);
+                        try {
+                            listaMAC.add(mac);
+                        } catch (Exception e) {
+                            listaMAC.add("Null");
+                        }
+
                     }
 
                     if (line.contains("Data atual (RTC)")) {
 
                         String rtc = line.replaceAll("[A-Za-z()]", "").replaceAll("   :", "");
-                        listaRtc.add(rtc);
+
+                        try {
+                            listaRtc.add(rtc);
+                        } catch (Exception e) {
+                            listaRtc.add("Null");
+                        }
+
                     }
 
                     if (line.contains("Serial:")) {
 
                         String serialRel = line.replaceAll("[\\sA-Za-z:]", "");
-                        listaSerialRel.add(serialRel);
-                        //  System.out.println(serialRel);
+
+                        try {
+                            listaSerialRel.add(serialRel);
+                        } catch (Exception e) {
+                            listaSerialRel.add("Null");
+                        }
                     }
 
                     if (line.contains("TP Fonte:")) {
 
                         String tpFonte = line.replaceAll("TP Fonte: [0-9][0-9][0-9][0-9][0-9]V:[0-9]V", "").replaceAll("[A-Ta-t:, ]", "");
-                        listaTPFonte.add(tpFonte);
+
+                        try {
+                            listaTPFonte.add(tpFonte);
+                        } catch (Exception e) {
+                            listaTPFonte.add("Null");
+                        }
+
                     }
 
                     if (line.contains("TP Carga:")) {
-
                         String tpCarga = line.replaceAll("TP Carga: [0-9][0-9][0-9][0-9][0-9]V:[0-9]V", "").replaceAll("[A-Ta-t:, ]", "");
-                        listaTPCarga.add(tpCarga);
+                        try {
+                            listaTPCarga.add(tpCarga);
+                        } catch (Exception e) {
+                            listaTPCarga.add("Null");
+                        }
                     }
 
                     if (line.contains("CIX1 :")) {
 
                         String cix1 = line.replaceAll("V \\/ 1.000000 kA ", "").replaceAll("CIX1 : ", "").replaceAll("[0-9][0-9][0-9].[0-9][0-9][0-9]%", "").replaceAll("[()]", "");
 
-                        float flou = Float.parseFloat(cix1);
-                        String valorFormatado = new DecimalFormat("0.0000").format(flou);
-                        listaCIX1.add(valorFormatado);
+                        try {
+                            float flou = Float.parseFloat(cix1);
+                            String valorFormatado = new DecimalFormat("0.0000").format(flou);
+                            listaCIX1.add(valorFormatado);
+                        } catch (Exception e) {
+                            listaCIX1.add("Null");
+                        }
                     }
 
                     if (line.contains("CIX2 :")) {
 
-                        String cix2 = line.replaceAll("V \\/ 1.000000 kA ", "").replaceAll("CIX2 : ", "").replaceAll("[0-9][0-9][0-9].[0-9][0-9][0-9]%", "").replaceAll("[()]", "");
-                        float flou = Float.parseFloat(cix2);
-                        String valorFormatado = new DecimalFormat("0.0000").format(flou);
-
-                        listaCIX2.add(valorFormatado);
+                        try {
+                            String cix2 = line.replaceAll("V \\/ 1.000000 kA ", "").replaceAll("CIX2 : ", "").replaceAll("[0-9][0-9][0-9].[0-9][0-9][0-9]%", "").replaceAll("[()]", "");
+                            float flou = Float.parseFloat(cix2);
+                            String valorFormatado = new DecimalFormat("0.0000").format(flou);
+                            listaCIX2.add(valorFormatado);
+                        } catch (Exception e) {
+                            listaCIX2.add("Null");
+                        }
                     }
 
                     if (line.contains("CIX3 :")) {
 
-                        String cix3 = line.replaceAll("V \\/ 1.000000 kA ", "").replaceAll("CIX3 : ", "").replaceAll("[0-9][0-9][0-9].[0-9][0-9][0-9]%", "").replaceAll("[()]", "");
-                        float flou = Float.parseFloat(cix3);
-                        String valorFormatado = new DecimalFormat("0.0000").format(flou);
-                        listaCIX3.add(valorFormatado);
+                        try {
+                            String cix3 = line.replaceAll("V \\/ 1.000000 kA ", "").replaceAll("CIX3 : ", "").replaceAll("[0-9][0-9][0-9].[0-9][0-9][0-9]%", "").replaceAll("[()]", "");
+                            float flou = Float.parseFloat(cix3);
+                            String valorFormatado = new DecimalFormat("0.0000").format(flou);
+                            listaCIX3.add(valorFormatado);
+                        } catch (Exception e) {
+                            listaCIX3.add("Null");
+                        }
+
                     }
 
                     if (line.contains("CIXN :")) {
+                        try {
+                            String cixn = line.replaceAll("V \\/ 1.000000 kA ", "").replaceAll("CIXN : ", "").replaceAll("[0-9][0-9][0-9].[0-9][0-9][0-9]%", "").replaceAll("[()]", "");
+                            float flou = Float.parseFloat(cixn);
+                            String valorFormatado = new DecimalFormat("0.0000").format(flou);
+                            listaCIXN.add(valorFormatado);
+                        } catch (Exception e) {
+                            listaCIXN.add("Null");
+                        }
 
-                        String cixn = line.replaceAll("V \\/ 1.000000 kA ", "").replaceAll("CIXN : ", "").replaceAll("[0-9][0-9][0-9].[0-9][0-9][0-9]%", "").replaceAll("[()]", "");
-                        float flou = Float.parseFloat(cixn);
-                        String valorFormatado = new DecimalFormat("0.0000").format(flou);
-
-                        listaCIXN.add(valorFormatado);
                     } else if (line.contains("CIX4 :")) {
-
-                        String cixn = line.replaceAll("V \\/ 1.000000 kA ", "").replaceAll("CIX4 : ", "").replaceAll("[0-9][0-9][0-9].[0-9][0-9][0-9]%", "").replaceAll("[()]", "");
-                        float flou = Float.parseFloat(cixn);
-                        String valorFormatado = new DecimalFormat("0.0000").format(flou);
-
-                        listaCIXN.add(valorFormatado);
-
+                        try {
+                            String cixn = line.replaceAll("V \\/ 1.000000 kA ", "").replaceAll("CIX4 : ", "").replaceAll("[0-9][0-9][0-9].[0-9][0-9][0-9]%", "").replaceAll("[()]", "");
+                            float flou = Float.parseFloat(cixn);
+                            String valorFormatado = new DecimalFormat("0.0000").format(flou);
+                            listaCIXN.add(valorFormatado);
+                        } catch (Exception e) {
+                            listaCIXN.add("Null");
+                        }
                     }
 
                     if (line.contains("CUX1 :")) {
 
-                        String cux1 = line.replaceAll("V \\/ 1.000000 kV ", "").replaceAll("CUX1 : ", "").replaceAll("[0-9][0-9][0-9].[0-9][0-9][0-9]%", "").replaceAll("[()]", "").replaceAll("[0-9][0-9].[0-9][0-9][0-9]%", "");
-                        float flou = Float.parseFloat(cux1);
-                        String valorFormatado = new DecimalFormat("0.0000").format(flou);
-                        listaCUX1.add(valorFormatado);
+                        try {
+                            String cux1 = line.replaceAll("V \\/ 1.000000 kV ", "").replaceAll("CUX1 : ", "").replaceAll("[0-9][0-9][0-9].[0-9][0-9][0-9]%", "").replaceAll("[()]", "").replaceAll("[0-9][0-9].[0-9][0-9][0-9]%", "");
+                            float flou = Float.parseFloat(cux1);
+                            String valorFormatado = new DecimalFormat("0.0000").format(flou);
+                            listaCUX1.add(valorFormatado);
+                        } catch (Exception e) {
+
+                            listaCUX1.add("Null");
+                        }
 
                     }
 
                     if (line.contains("CUX2 :")) {
-
-                        String cux2 = line.replaceAll("V \\/ 1.000000 kV ", "").replaceAll("CUX2 : ", "").replaceAll("[0-9][0-9][0-9].[0-9][0-9][0-9]%", "").replaceAll("[()]", "").replaceAll("[0-9][0-9].[0-9][0-9][0-9]%", "");
-                        float flou = Float.parseFloat(cux2);
-                        String valorFormatado = new DecimalFormat("0.0000").format(flou);
-                        listaCUX2.add(valorFormatado);
+                        try {
+                            String cux2 = line.replaceAll("V \\/ 1.000000 kV ", "").replaceAll("CUX2 : ", "").replaceAll("[0-9][0-9][0-9].[0-9][0-9][0-9]%", "").replaceAll("[()]", "").replaceAll("[0-9][0-9].[0-9][0-9][0-9]%", "");
+                            float flou = Float.parseFloat(cux2);
+                            String valorFormatado = new DecimalFormat("0.0000").format(flou);
+                            listaCUX2.add(valorFormatado);
+                        } catch (Exception e) {
+                            listaCUX2.add("Null");
+                        }
 
                     }
 
                     if (line.contains("CUX3 :")) {
-
-                        String cux3 = line.replaceAll("V \\/ 1.000000 kV ", "").replaceAll("CUX3 : ", "").replaceAll("[0-9][0-9][0-9].[0-9][0-9][0-9]%", "").replaceAll("[()]", "").replaceAll("[0-9][0-9].[0-9][0-9][0-9]%", "");
-                        float flou = Float.parseFloat(cux3);
-                        String valorFormatado = new DecimalFormat("0.0000").format(flou);
-
-                        listaCUX3.add(valorFormatado);
+                        try {
+                            String cux3 = line.replaceAll("V \\/ 1.000000 kV ", "").replaceAll("CUX3 : ", "").replaceAll("[0-9][0-9][0-9].[0-9][0-9][0-9]%", "").replaceAll("[()]", "").replaceAll("[0-9][0-9].[0-9][0-9][0-9]%", "");
+                            float flou = Float.parseFloat(cux3);
+                            String valorFormatado = new DecimalFormat("0.0000").format(flou);
+                            listaCUX3.add(valorFormatado);
+                        } catch (Exception e) {
+                            listaCUX3.add("Null");
+                        }
 
                     }
 
                     if (line.contains("CUX4 :")) {
-
-                        String cux4 = line.replaceAll("V \\/ 1.000000 kV ", "").replaceAll("CUX4 : ", "").replaceAll("[0-9][0-9][0-9].[0-9][0-9][0-9]%", "").replaceAll("[()]", "").replaceAll("[0-9][0-9].[0-9][0-9][0-9]%", "");
-                        float flou = Float.parseFloat(cux4);
-                        String valorFormatado = new DecimalFormat("0.0000").format(flou);
-                        listaCUX4.add(valorFormatado);
+                        try {
+                            String cux4 = line.replaceAll("V \\/ 1.000000 kV ", "").replaceAll("CUX4 : ", "").replaceAll("[0-9][0-9][0-9].[0-9][0-9][0-9]%", "").replaceAll("[()]", "").replaceAll("[0-9][0-9].[0-9][0-9][0-9]%", "");
+                            float flou = Float.parseFloat(cux4);
+                            String valorFormatado = new DecimalFormat("0.0000").format(flou);
+                            listaCUX4.add(valorFormatado);
+                        } catch (Exception e) {
+                            listaCUX4.add("Null");
+                        }
 
                     }
 
                     if (line.contains("CUX5 :")) {
-
-                        String cux5 = line.replaceAll("V \\/ 1.000000 kV ", "").replaceAll("CUX5 : ", "").replaceAll("[0-9][0-9][0-9].[0-9][0-9][0-9]%", "").replaceAll("[()]", "").replaceAll("[0-9][0-9].[0-9][0-9][0-9]%", "");
-                        float flou = Float.parseFloat(cux5);
-                        String valorFormatado = new DecimalFormat("0.0000").format(flou);
-                        listaCUX5.add(valorFormatado);
+                        try {
+                            String cux5 = line.replaceAll("V \\/ 1.000000 kV ", "").replaceAll("CUX5 : ", "").replaceAll("[0-9][0-9][0-9].[0-9][0-9][0-9]%", "").replaceAll("[()]", "").replaceAll("[0-9][0-9].[0-9][0-9][0-9]%", "");
+                            float flou = Float.parseFloat(cux5);
+                            String valorFormatado = new DecimalFormat("0.0000").format(flou);
+                            listaCUX5.add(valorFormatado);
+                        } catch (Exception e) {
+                            listaCUX5.add("Null");
+                        }
 
                     }
 
                     if (line.contains("CUX6 :")) {
-
-                        String cux6 = line.replaceAll("V \\/ 1.000000 kV ", "").replaceAll("CUX6 : ", "").replaceAll("[0-9][0-9][0-9].[0-9][0-9][0-9]%", "").replaceAll("[()]", "").replaceAll("[0-9][0-9].[0-9][0-9][0-9]%", "");
-                        float flou = Float.parseFloat(cux6);
-                        String valorFormatado = new DecimalFormat("0.0000").format(flou);
-                        listaCUX6.add(valorFormatado);
+                        try {
+                            String cux6 = line.replaceAll("V \\/ 1.000000 kV ", "").replaceAll("CUX6 : ", "").replaceAll("[0-9][0-9][0-9].[0-9][0-9][0-9]%", "").replaceAll("[()]", "").replaceAll("[0-9][0-9].[0-9][0-9][0-9]%", "");
+                            float flou = Float.parseFloat(cux6);
+                            String valorFormatado = new DecimalFormat("0.0000").format(flou);
+                            listaCUX6.add(valorFormatado);
+                        } catch (Exception e) {
+                            listaCUX6.add("Null");
+                        }
 
                     }
 
@@ -479,42 +550,41 @@ public class SerialRelForm extends javax.swing.JFrame {
                         altere.setNumSerie(listaSerial.get(i));
                     } catch (Exception e) {
                         altere.setNumSerie("Null");
-                        JOptionPane.showMessageDialog(null, "Faltando Número de serie!");
+
                     }
 
                     try {
                         altere.setMAC(listaMAC.get(i));
                     } catch (Exception e) {
                         altere.setMAC("Null");
-                        JOptionPane.showMessageDialog(null, "Faltando Endereco MAC!");
+
                     }
 
                     try {
                         altere.setNumRel(listaSerialRel.get(i));
                     } catch (Exception e) {
                         altere.setNumRel("Null");
-                        JOptionPane.showMessageDialog(null, "Faltando Serial do religador!");
+
                     }
 
                     try {
                         altere.setTpFonte(listaTPFonte.get(i));
                     } catch (Exception e) {
                         altere.setTpFonte("Null");
-                        JOptionPane.showMessageDialog(null, "Faltando TP Fonte!");
+
                     }
 
                     try {
                         altere.setTpCarga(listaTPCarga.get(i));
                     } catch (Exception e) {
                         altere.setTpCarga("Null");
-                        JOptionPane.showMessageDialog(null, "Faltando TP Carga!");
+
                     }
 
                     try {
                         altere.setCIX1(listaCIX1.get(i));
                     } catch (Exception e) {
                         altere.setCIX1("Null");
-                        JOptionPane.showMessageDialog(null, "Faltando CIX1!");
 
                     }
 
@@ -522,77 +592,77 @@ public class SerialRelForm extends javax.swing.JFrame {
                         altere.setCIX2(listaCIX2.get(i));
                     } catch (Exception e) {
                         altere.setCIX2("Null");
-                        JOptionPane.showMessageDialog(null, "Faltando CIX2!");
+
                     }
 
                     try {
                         altere.setCIX3(listaCIX3.get(i));
                     } catch (Exception e) {
                         altere.setCIX3("Null");
-                        JOptionPane.showMessageDialog(null, "Faltando CIX3!");
+
                     }
 
                     try {
                         altere.setCIXN(listaCIXN.get(i));
                     } catch (Exception e) {
                         altere.setCIXN("Null");
-                        JOptionPane.showMessageDialog(null, "Faltando CIXN!");
+
                     }
 
                     try {
                         altere.setCUX1(listaCUX1.get(i));
                     } catch (Exception e) {
                         altere.setCUX1("Null");
-                        JOptionPane.showMessageDialog(null, "Faltando CUX1!");
+
                     }
 
                     try {
                         altere.setCUX2(listaCUX2.get(i));
                     } catch (Exception e) {
                         altere.setCUX2("Null");
-                        JOptionPane.showMessageDialog(null, "Faltando CUX2!");
+
                     }
 
                     try {
                         altere.setCUX3(listaCUX3.get(i));
                     } catch (Exception e) {
                         altere.setCUX3("Null");
-                        JOptionPane.showMessageDialog(null, "Faltando CUX3!");
+
                     }
 
                     try {
                         altere.setCUX4(listaCUX4.get(i));
                     } catch (Exception e) {
                         altere.setCUX4("Null");
-                        JOptionPane.showMessageDialog(null, "Faltando CUX4!");
+
                     }
 
                     try {
                         altere.setCUX5(listaCUX5.get(i));
                     } catch (Exception e) {
                         altere.setCUX5("Null");
-                        JOptionPane.showMessageDialog(null, "Faltando CUX5!");
+
                     }
 
                     try {
                         altere.setCUX6(listaCUX6.get(i));
                     } catch (Exception e) {
                         altere.setCUX6("Null");
-                        JOptionPane.showMessageDialog(null, "Faltando CUX6!");
+
                     }
 
                     try {
                         altere.setRtc(listaRtc.get(i));
                     } catch (Exception e) {
                         altere.setRtc("Null");
-                        JOptionPane.showMessageDialog(null, "Faltando data atual (RTC)");
+
                     }
 
                     try {
                         altere.setDate(listadate.get(i));
                     } catch (Exception e) {
                         altere.setDate("Null");
-                        JOptionPane.showMessageDialog(null, "Faltando Uptime!");
+
                     }
 
                     if (!listaAltere.contains(altere)) {
@@ -612,10 +682,8 @@ public class SerialRelForm extends javax.swing.JFrame {
 
                     for (int i = 0; i < listaAltere.size(); i++) {
                         Altere get = listaAltere.get(i);
-
                         altereModel.addRow(get);
                     }
-
                 }
 
             } catch (FileNotFoundException ex) {
@@ -627,11 +695,6 @@ public class SerialRelForm extends javax.swing.JFrame {
             String qtd = String.valueOf(listaAltere.size());
 
             jLabelColeta.setText(qtd);
-
-            for (int i = 0; i < listaAltere.size(); i++) {
-                Altere get = listaAltere.get(i);
-                System.out.println("Coleta: " + get);
-            }
 
     }//GEN-LAST:event_btnTxtActionPerformed
     }
@@ -671,13 +734,12 @@ public class SerialRelForm extends javax.swing.JFrame {
 
                     String serial = CSV[0].replaceAll("[\\s]", "");
                     listaSerial.add(serial);
-                    
+
                     String MAC = CSV[1];
                     listaMAC.add(MAC);
 
                     String serialRel = CSV[2];
                     listaSerialRel.add(serialRel);
-                    
 
                 }
 
@@ -743,9 +805,9 @@ public class SerialRelForm extends javax.swing.JFrame {
         } else {
 
             for (int i = 0; i < listaAltere.size(); i++) {
-                Altere atere = listaAltere.get(i);
+                Altere altere = listaAltere.get(i);
 
-                if (listaCSV != null && listaCSV.contains(atere)) {
+                if (listaCSV != null && listaCSV.contains(altere) && altere.getTpCarga().equals("30500V4V") && altere.getTpFonte().equals("30500V4V")) {
                     System.out.println("Aprovado no teste: " + listaAltere.get(i));
 
                 } else {
@@ -753,7 +815,6 @@ public class SerialRelForm extends javax.swing.JFrame {
                     System.out.println("Reprovado no teste : " + listaAltere.get(i));
                     String erro = String.valueOf(listaAltere.get(i).getNumSerie());
                     qtdfalha++;
-
                     JtextAerros.append(erro + "\n");
                 }
             }
@@ -769,11 +830,11 @@ public class SerialRelForm extends javax.swing.JFrame {
                 btnProcessar.setBackground(Color.green);
 
             } else {
-                
+
                 btnProcessar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-process-50_1.png"))); // NOI18N
                 btnProcessar.setOpaque(true);
                 btnProcessar.setBackground(Color.red);
-                
+
                 for (int i = 0; i < listaRenagade.size(); i++) {
                     String falha = String.valueOf(listaRenagade.get(i));
                     JtextAerros.setText(falha);
